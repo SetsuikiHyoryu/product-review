@@ -5,7 +5,7 @@
 - [x] 安装 Bun
 - [x] 初始化项目（package.json / tsconfig）
 - [x] 安装并启动 Elysia
-- [ ] 创建最小 TSX 模板解析器
+- [x] 创建 TSX 模板解析器
 - [ ] 启动一个能返回 HTML 的 GET /
 - [ ] 初始化 SQLite（建 products 表）
 - [ ] 写死插入一条测试数据
