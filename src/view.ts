@@ -1,5 +1,7 @@
 /** @jsx html */
 
+import type { FunctionalTag } from './types'
+
 type Child = string | number | boolean | null | undefined
 
 function changePropsToAttributes(props: Record<string, any>): string {
@@ -17,10 +19,14 @@ function changeChildrenToContent(children: Child[]): string {
 }
 
 export function html(
-  tag: string,
+  tag: string | FunctionalTag,
   props: Record<string, any> | null,
   ...children: Child[]
 ): string {
+  if (typeof tag === 'function') {
+    return tag({ ...(props ?? {}), children })
+  }
+
   const attributes = props ? changePropsToAttributes(props) : ''
   const content = changeChildrenToContent(children)
   return `<${tag}${attributes}>${content}</${tag}>`
